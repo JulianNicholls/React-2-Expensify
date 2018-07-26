@@ -1,16 +1,14 @@
-# React-2-Indecision
-Indecision App from The Complete React Web Developer Course (2nd Edition) by Andrew Mead at https://www.udemy.com/react-2nd-edition/learn/v4/content
+# React-2-Expensify
+Expensify App from the second half of [The Complete React Web Developer Course 
+(2nd Edition) by Andrew Mead](https://www.udemy.com/react-2nd-edition/learn/v4/content)
 
 ## Progress
 
-Completed this half of the course
+Skeleton of the app and setup
 
 ## Differences from Andrew
 
-I have skipped retyping some of the playground tutorials and exercises, 
-e.g. Arrow functions, Classes.
-
-My directory layout is slightly different, and I use my own names for event functions.
+...
 
 ## Git client
 
