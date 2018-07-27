@@ -7,7 +7,19 @@ body {
   font-size: $m-size;
 }
 
+.nav-link {
+  display: inline-block;
+  color: #ddd;
+  margin-right: 1em;
+  text-decoration: none;
+
+  &:hover {
+    color: #ffd;
+   text-shadow: 2px 2px 4px rgba(255, 255, 128, 0.7);
+  }
+}
+
 .active {
   font-weight: bold;
-  color: #603;
+  color: white;
 }
