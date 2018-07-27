@@ -8,7 +8,7 @@ Started section 11 - Redux
 
 ## Differences from Andrew
 
-I haven't done the Portfolio app.
+I haven't done the Portfolio app, destructuring, or some of the redux examples.
 
 ## Git client
 
