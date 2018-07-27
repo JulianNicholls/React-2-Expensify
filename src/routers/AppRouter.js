@@ -1,13 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-const ExpenseDashboardPage = () => <h2>Dashboard</h2>;
-
-const AddExpensePage = () => <h2>Add Expense</h2>;
-
-const EditExpensePage = () => <h2>Edit Expense</h2>;
-
-const HelpPage = () => <h2>Help!</h2>;
+import Header from '../components/Header';
+import DashboardPage from '../components/DashboardPage';
+import AddExpensePage from '../components/AddExpensePage';
+import EditExpensePage from '../components/EditExpensePage';
+import HelpPage from '../components/HelpPage';
 
 const NotFoundPage = () => (
   <React.Fragment>
@@ -19,25 +17,12 @@ const NotFoundPage = () => (
   </React.Fragment>
 );
 
-const Header = () => (
-  <header>
-    <h1>Expensify</h1>
-
-    <NavLink to="/" exact>
-      Dashboard
-    </NavLink>
-    <NavLink to="/create">Add Expense</NavLink>
-    <NavLink to="/edit">Edit Expense</NavLink>
-    <NavLink to="/help">Help</NavLink>
-  </header>
-);
-
 const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Header />
       <Switch>
-        <Route path="/" exact component={ExpenseDashboardPage} />
+        <Route path="/" exact component={DashboardPage} />
         <Route path="/create" component={AddExpensePage} />
         <Route path="/edit" component={EditExpensePage} />
         <Route path="/help" component={HelpPage} />
