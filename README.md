@@ -4,11 +4,11 @@ Expensify App from the second half of [The Complete React Web Developer Course
 
 ## Progress
 
-Skeleton of the app and setup
+Started section 11 - Redux
 
 ## Differences from Andrew
 
-...
+I haven't done the Portfolio app.
 
 ## Git client
 
