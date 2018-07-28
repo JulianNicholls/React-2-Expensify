@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 import moment from 'moment';
 
@@ -9,7 +8,8 @@ class ExpenseForm extends React.Component {
     note: '',
     amount: '',
     createdAt: moment(),
-    pickerFocused: false
+    pickerFocused: false,
+    error: ''
   };
 
   changeDescription = e => {
@@ -27,21 +27,40 @@ class ExpenseForm extends React.Component {
   changeAmount = e => {
     const amount = e.target.value;
 
-    if (amount.match(/^\d*(\.\d{0,2})?$/)) this.setState(() => ({ amount }));
+    if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/))
+      this.setState(() => ({ amount }));
   };
 
   onDateChange = createdAt => {
-    this.setState(() => ({ createdAt }));
+    if (createdAt) this.setState(() => ({ createdAt }));
   };
 
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ pickerFocused: focused }));
   };
 
+  addExpense = e => {
+    e.preventDefault();
+
+    if (!this.state.description || !this.state.amount) {
+      this.setState(() => ({ error: 'You must enter a description and an amount' }));
+    } else {
+      this.setState(() => ({ error: '' }));
+
+      this.props.handleSubmit({
+        description: this.state.description,
+        amount: parseFloat(this.state.amount, 10) * 100,
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note
+      });
+    }
+  };
+
   render() {
     return (
       <div>
-        <form className="expense-form">
+        {this.state.error && <p className="form-error">{this.state.error}</p>}
+        <form onSubmit={this.addExpense} className="expense-form">
           <input
             value={this.state.description}
             type="text"
@@ -76,4 +95,4 @@ class ExpenseForm extends React.Component {
   }
 }
 
-export default connect()(ExpenseForm);
+export default ExpenseForm;
