@@ -8,7 +8,9 @@ Completed section 11 - Redux
 
 ## Differences from Andrew
 
-I haven't done the Portfolio app, destructuring, or some of the redux examples.
+I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
+
+I have some minimal CSS until Andrew styles it in section 17.
 
 ## Git client
 

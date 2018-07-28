@@ -164,14 +164,10 @@ store.subscribe(() => {
   console.log({ state, visible, total });
 });
 
-const rent = store.dispatch(
-  addExpense({ description: 'rent', amount: 53500, createdAt: 10000 })
-);
-const coffee = store.dispatch(
-  addExpense({ description: 'coffee', amount: 265, createdAt: 11000 })
-);
+store.dispatch(addExpense({ description: 'rent', amount: 53500, createdAt: 10000 }));
+store.dispatch(addExpense({ description: 'coffee', amount: 265, createdAt: 11000 }));
 
-const telephone = store.dispatch(
+store.dispatch(
   addExpense({ description: 'telephone', amount: 4850, createdAt: 12000 })
 );
 
