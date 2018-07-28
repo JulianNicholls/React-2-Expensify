@@ -22,6 +22,9 @@ store.dispatch(
   addExpense({ description: 'Gas bill', amount: 2750, createdAt: 20000 })
 );
 store.dispatch(addExpense({ description: 'Rent', amount: 53500, createdAt: 15000 }));
+store.dispatch(
+  addExpense({ description: 'Telephone bill', amount: 5000, createdAt: 17000 })
+);
 
 //---------------------------------------------------------------------------
 
