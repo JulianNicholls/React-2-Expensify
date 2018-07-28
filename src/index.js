@@ -12,7 +12,6 @@ import './styles/styles.scss';
 // TEST CODE
 
 import { addExpense } from './actions/expenses';
-import { setTextFilter } from './playground/redux-expensify';
 
 const store = configureStore();
 
@@ -23,18 +22,6 @@ store.dispatch(
   addExpense({ description: 'Gas bill', amount: 2750, createdAt: 20000 })
 );
 store.dispatch(addExpense({ description: 'Rent', amount: 53500, createdAt: 15000 }));
-
-setTimeout(() => {
-  store.dispatch(setTextFilter('bill'));
-}, 3000);
-
-setTimeout(() => {
-  store.dispatch(setTextFilter('rent'));
-}, 6000);
-
-setTimeout(() => {
-  store.dispatch(setTextFilter());
-}, 9000);
 
 //---------------------------------------------------------------------------
 
@@ -54,6 +41,18 @@ ReactDOM.render(
 
 // store.dispatch(addExpense({ description: 'Water bill', amount: 10800 }));
 // store.dispatch(addExpense({ description: 'Gas bill', amount: 2750 }));
+
+// setTimeout(() => {
+//   store.dispatch(setTextFilter('bill'));
+// }, 3000);
+
+// setTimeout(() => {
+//   store.dispatch(setTextFilter('rent'));
+// }, 6000);
+
+// setTimeout(() => {
+//   store.dispatch(setTextFilter());
+// }, 9000);
 
 // console.log(
 //   'unfiltered:',
