@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from './types';
+import { ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from '../actions/types';
 
 export default (state = [], action) => {
   switch (action.type) {

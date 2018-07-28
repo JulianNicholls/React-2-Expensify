@@ -4,7 +4,7 @@ import {
   SORT_BY_AMOUNT,
   SET_START_DATE,
   SET_END_DATE
-} from './types';
+} from '../actions/types';
 
 const initialFilters = {
   text: '',
