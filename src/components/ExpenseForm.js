@@ -1,11 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 
 class ExpenseForm extends React.Component {
   state = {
     description: '',
     note: '',
-    amount: ''
+    amount: '',
+    createdAt: moment(),
+    pickerFocused: false
   };
 
   changeDescription = e => {
@@ -26,10 +30,18 @@ class ExpenseForm extends React.Component {
     if (amount.match(/^\d*(\.\d{0,2})?$/)) this.setState(() => ({ amount }));
   };
 
+  onDateChange = createdAt => {
+    this.setState(() => ({ createdAt }));
+  };
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ pickerFocused: focused }));
+  };
+
   render() {
     return (
       <div>
-        <form class="expense-form">
+        <form className="expense-form">
           <input
             value={this.state.description}
             type="text"
@@ -42,6 +54,15 @@ class ExpenseForm extends React.Component {
             type="text"
             placeholder="Amount"
             onChange={this.changeAmount}
+          />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.pickerFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            displayFormat={'ll'}
           />
           <textarea
             value={this.state.note}
