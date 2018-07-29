@@ -3,14 +3,20 @@ import { SingleDatePicker } from 'react-dates';
 import moment from 'moment';
 
 class ExpenseForm extends React.Component {
-  state = {
-    description: '',
-    note: '',
-    amount: '',
-    createdAt: moment(),
-    pickerFocused: false,
-    error: ''
-  };
+  constructor(props) {
+    super(props);
+
+    const { expense } = props;
+
+    this.state = {
+      description: expense ? expense.description : '',
+      note: expense ? expense.note : '',
+      amount: expense ? (expense.amount / 100).toFixed(2) : '',
+      createdAt: expense ? moment(expense.createdAt) : moment(),
+      pickerFocused: false,
+      error: ''
+    };
+  }
 
   changeDescription = e => {
     const description = e.target.value;
@@ -88,7 +94,7 @@ class ExpenseForm extends React.Component {
             placeholder="Add an optional note for this expense"
             onChange={this.changeNote}
           />
-          <button>Add Expense</button>
+          <button>{this.props.expense ? 'Update' : 'Add Expense'}</button>
         </form>
       </div>
     );
