@@ -4,13 +4,13 @@ Expensify App from the second half of [The Complete React Web Developer Course
 
 ## Progress
 
-Completed section 11 - Redux
+Completed section 11 - React with Redux
 
 ## Differences from Andrew
 
 I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
 
-I have some minimal CSS until Andrew styles it in section 17.
+I have put in some minimal CSS until Andrew styles it in section 17.
 
 ## Git client
 

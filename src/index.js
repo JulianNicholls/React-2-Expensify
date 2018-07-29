@@ -27,26 +27,32 @@ const store = configureStore();
 // console.log(now.format('LL LT'));
 // console.log(now.startOf('week').fromNow());
 
-const now = moment().valueOf();
-
 store.dispatch(
   addExpense({
     description: 'Water bill',
     amount: 10800,
-    createdAt: now - 386400000
+    createdAt: moment().subtract(27, 'days')
   })
 );
 store.dispatch(
-  addExpense({ description: 'Gas bill', amount: 2750, createdAt: now - 86430000 })
+  addExpense({
+    description: 'Gas bill',
+    amount: 2750,
+    createdAt: moment().add(5, 'days')
+  })
 );
 store.dispatch(
-  addExpense({ description: 'Rent', amount: 53500, createdAt: now - 286400000 })
+  addExpense({
+    description: 'Rent',
+    amount: 53500,
+    createdAt: moment().subtract(15, 'days')
+  })
 );
 store.dispatch(
   addExpense({
     description: 'Telephone bill',
     amount: 5000,
-    createdAt: now - 186400000
+    createdAt: moment().subtract(5, 'days')
   })
 );
 

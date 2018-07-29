@@ -41,8 +41,8 @@ class ExpenseForm extends React.Component {
     if (createdAt) this.setState(() => ({ createdAt }));
   };
 
-  onFocusChange = ({ focused }) => {
-    this.setState(() => ({ pickerFocused: focused }));
+  onFocusChange = ({ pickerFocused }) => {
+    this.setState(() => ({ pickerFocused }));
   };
 
   addExpense = e => {

@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import {
   SET_TEXT_FILTER,
   SORT_BY_DATE,
@@ -9,8 +11,8 @@ import {
 const initialFilters = {
   text: '',
   sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined
+  startDate: moment().subtract(21, 'days'),
+  endDate: moment().add(21, 'days')
 };
 
 export default (state = initialFilters, action) => {
