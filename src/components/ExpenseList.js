@@ -4,17 +4,26 @@ import { connect } from 'react-redux';
 import getFilteredExpenses from '../selectors/expenses';
 import ExpenseListItem from './ExpenseListItem';
 
-const ExpenseList = ({ expenses }) => {
+export const ExpenseList = ({ expenses, filtered }) => {
+  if (expenses.length === 0)
+    return (
+      <p>
+        {filtered ? 'All expenses filtered out' : 'There are no expenses to display'}
+      </p>
+    );
+
   return (
-    <div>
-      <h2>Expense List</h2>
-      {expenses.map(item => <ExpenseListItem key={item.id} {...item} />)}
-    </div>
+    <div>{expenses.map(item => <ExpenseListItem key={item.id} {...item} />)}</div>
   );
 };
 
-const mapStateToProps = state => ({
-  expenses: getFilteredExpenses(state.expenses, state.filters)
-});
+const mapStateToProps = state => {
+  const filtered = getFilteredExpenses(state.expenses, state.filters);
+
+  return {
+    expenses: filtered,
+    filtered: filtered.length !== state.expenses.length
+  };
+};
 
 export default connect(mapStateToProps)(ExpenseList);
