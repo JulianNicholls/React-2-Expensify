@@ -1,5 +1,5 @@
-import * as types from '../types';
-import * as actions from '../expenses';
+import * as types from '../../actions/types';
+import * as actions from '../../actions/expenses';
 
 describe('Expenses Action Generators', () => {
   it('sets up to remove an expense', () => {

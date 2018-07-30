@@ -1,7 +1,7 @@
 import moment from 'moment';
 
-import * as types from '../types';
-import * as actions from '../filters';
+import * as types from '../../actions/types';
+import * as actions from '../../actions/filters';
 
 describe('Filters Action Generators', () => {
   it('removes the text filter', () => {

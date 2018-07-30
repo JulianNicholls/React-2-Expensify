@@ -10,8 +10,6 @@ Completed section 11 - React with Redux
 
 I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
 
-I have put my tests into a `__tests__` directory inside each directory of parts to check.
-
 I have put in some minimal CSS until Andrew styles it in section 17.
 
 ## Git client

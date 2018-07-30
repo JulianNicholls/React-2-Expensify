@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 import * as types from '../../actions/types';
-import filtersReducer from '../filters';
+import filtersReducer from '../../reducers/filters';
 
 describe('Filters reducer', () => {
   it('sets up the default filters', () => {

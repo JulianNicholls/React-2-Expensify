@@ -1,7 +1,7 @@
-import expensesReducer from '../expenses';
+import expensesReducer from '../../reducers/expenses';
 
 import * as types from '../../actions/types';
-import { testExpenses } from '../../fixtures/expenses';
+import { testExpenses } from '../fixtures/expenses';
 
 describe('Expenses reducer', () => {
   it('sets default state', () => {

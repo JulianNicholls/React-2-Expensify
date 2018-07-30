@@ -1,8 +1,8 @@
 import moment from 'moment';
 
-import getFilteredExpenses from '../expenses';
+import getFilteredExpenses from '../../selectors/expenses';
 
-import { testExpenses } from '../../fixtures/expenses';
+import { testExpenses } from '../fixtures/expenses';
 
 describe('getFilteredExpenses selector', () => {
   const testFilters = {
