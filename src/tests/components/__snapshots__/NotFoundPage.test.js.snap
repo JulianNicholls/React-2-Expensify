@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFoundPage component should render correctly 1`] = `
+<React.Fragment>
+  <h1>
+    404
+  </h1>
+  <p>
+    That page was not found.
+  </p>
+  <p>
+    <Link
+      replace={false}
+      to="/"
+    >
+      Back to bed, back to reality
+    </Link>
+  </p>
+</React.Fragment>
+`;

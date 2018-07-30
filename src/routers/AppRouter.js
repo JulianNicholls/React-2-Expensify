@@ -6,7 +6,7 @@ import DashboardPage from '../components/DashboardPage';
 import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
 
-const NotFoundPage = () => (
+export const NotFoundPage = () => (
   <React.Fragment>
     <h1>404</h1>
     <p>That page was not found.</p>
