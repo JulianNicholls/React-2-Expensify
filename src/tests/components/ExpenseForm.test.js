@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import moment from 'moment';
 
 import ExpenseForm from '../../components/ExpenseForm';
 import { testExpenses } from '../fixtures/expenses';
@@ -67,5 +68,38 @@ describe('ExpenseForm component', () => {
       .simulate('change', { target: { value: '12.122' } });
 
     expect(wrapper.state('amount')).toBe('');
+  });
+
+  it('should call handleSubmit on valid submission', () => {
+    const handleSubmitSpy = jest.fn();
+    const wrapper = shallow(
+      <ExpenseForm expense={testExpenses[1]} handleSubmit={handleSubmitSpy} />
+    );
+
+    wrapper.find('form').simulate('submit', { preventDefault: () => {} });
+
+    expect(wrapper.state('error')).toBe('');
+    expect(handleSubmitSpy).toHaveBeenLastCalledWith({
+      description: testExpenses[1].description,
+      amount: testExpenses[1].amount,
+      note: testExpenses[1].note,
+      createdAt: testExpenses[1].createdAt
+    });
+  });
+
+  it('should set createdAt in onDateChange', () => {
+    const wrapper = shallow(<ExpenseForm />);
+
+    wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(moment());
+    expect(wrapper.state('createdAt')).toEqual(moment());
+  });
+
+  it('should set pickerFocused in onFocusChange', () => {
+    const wrapper = shallow(<ExpenseForm />);
+
+    wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({
+      pickerFocused: true
+    });
+    expect(wrapper.state('pickerFocused')).toEqual(true);
   });
 });
