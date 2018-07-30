@@ -11,8 +11,12 @@ import {
 const initialFilters = {
   text: '',
   sortBy: 'date',
-  startDate: moment().subtract(21, 'days'),
-  endDate: moment().add(21, 'days')
+  startDate: moment()
+    .startOf('day')
+    .subtract(21, 'days'),
+  endDate: moment()
+    .startOf('day')
+    .add(21, 'days')
 };
 
 export default (state = initialFilters, action) => {
