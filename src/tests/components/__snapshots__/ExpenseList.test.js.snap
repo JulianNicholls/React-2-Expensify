@@ -1,42 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExpenseList component should render correctly 1`] = `
-<div>
-  <ExpenseListItem
-    amount={10000}
-    createdAt={2000000000}
-    description="rent"
-    id="1"
-    key="1"
-    note=""
-  />
-  <ExpenseListItem
-    amount={15000}
-    createdAt={1800000000}
-    description="rates"
-    id="2"
-    key="2"
-    note=""
-  />
-  <ExpenseListItem
-    amount={20000}
-    createdAt={1600000000}
-    description="water"
-    id="3"
-    key="3"
-    note=""
-  />
-  <ExpenseListItem
-    amount={25000}
-    createdAt={1400000000}
-    description="gas"
-    id="4"
-    key="4"
-    note=""
-  />
-</div>
-`;
-
 exports[`ExpenseList component should render correctly WITH expenses 1`] = `
 <div>
   <ExpenseListItem
