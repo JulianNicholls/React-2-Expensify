@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render correctly 1`] = `
+<header
+  style={
+    Object {
+      "background": "#202050",
+      "color": "#eee",
+    }
+  }
+>
+  <div
+    className="container"
+  >
+    <h1
+      style={
+        Object {
+          "margin": "0",
+        }
+      }
+    >
+      Expensify
+    </h1>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "justifyItems": "left",
+          "marginTop": "1em",
+        }
+      }
+    />
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="nav-link"
+      exact={true}
+      to="/"
+    >
+      Dashboard
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="nav-link"
+      to="/create"
+    >
+      Add Expense
+    </NavLink>
+  </div>
+</header>
+`;
