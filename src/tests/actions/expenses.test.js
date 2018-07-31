@@ -1,6 +1,8 @@
 import * as types from '../../actions/types';
 import * as actions from '../../actions/expenses';
 
+import { testExpenses } from '../fixtures/expenses';
+
 describe('Expenses Action Generators', () => {
   it('sets up to remove an expense', () => {
     const action = actions.removeExpense('123abc');
@@ -19,18 +21,11 @@ describe('Expenses Action Generators', () => {
   });
 
   it('sets up to add an expense WITH details', () => {
-    const expenseData = {
-      description: 'rent',
-      amount: 12000,
-      createdAt: 123456,
-      note: 'last months rent'
-    };
-
-    const action = actions.addExpense(expenseData);
+    const action = actions.addExpense(testExpenses[1]);
 
     expect(action).toEqual({
       type: types.ADD_EXPENSE,
-      expense: { ...expenseData, id: expect.any(String) }
+      expense: { ...testExpenses[1], id: expect.any(String) }
     });
   });
 
