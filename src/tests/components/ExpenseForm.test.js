@@ -91,6 +91,7 @@ describe('ExpenseForm component', () => {
     const wrapper = shallow(<ExpenseForm />);
 
     wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(moment());
+
     expect(wrapper.state('createdAt')).toEqual(moment());
   });
 
@@ -100,6 +101,7 @@ describe('ExpenseForm component', () => {
     wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({
       pickerFocused: true
     });
-    expect(wrapper.state('pickerFocused')).toEqual(true);
+
+    expect(wrapper.state('pickerFocused')).toBe(true);
   });
 });

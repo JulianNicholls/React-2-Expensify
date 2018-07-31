@@ -1,15 +1,16 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
-const AddExpensePage = ({ dispatch, history }) => (
+export const AddExpensePage = ({ addExpense, history }) => (
   <div className="container">
     <h1>Add Expense</h1>
     <ExpenseForm
       handleSubmit={expense => {
-        dispatch(addExpense(expense));
+        addExpense(expense);
 
         history.push('/');
       }}
@@ -17,4 +18,11 @@ const AddExpensePage = ({ dispatch, history }) => (
   </div>
 );
 
-export default connect()(AddExpensePage);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ addExpense }, dispatch);
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AddExpensePage);

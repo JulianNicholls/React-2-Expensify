@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddExpensePage component should render correctly 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Add Expense
+  </h1>
+  <ExpenseForm
+    handleSubmit={[Function]}
+  />
+</div>
+`;

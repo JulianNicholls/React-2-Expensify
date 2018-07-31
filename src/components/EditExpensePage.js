@@ -4,30 +4,29 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import * as actions from '../actions/expenses';
 
-const EditExpensePage = ({ expense, editExpense, removeExpense, history }) => {
-  return (
-    <div className="container">
-      <h2>Edit Expense</h2>
-      <ExpenseForm
-        expense={expense}
-        handleSubmit={updated => {
-          editExpense(expense.id, updated);
+export class EditExpensePage extends React.Component {
+  handleSubmit = updated => {
+    this.props.editExpense(this.props.expense.id, updated);
 
-          history.push('/');
-        }}
-      />
-      <button
-        onClick={() => {
-          removeExpense(expense.id);
+    this.props.history.push('/');
+  };
 
-          history.push('/');
-        }}
-      >
-        Remove
-      </button>
-    </div>
-  );
-};
+  handleRemove = () => {
+    this.props.removeExpense(this.props.expense.id);
+
+    this.props.history.push('/');
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <h2>Edit Expense</h2>
+        <ExpenseForm expense={this.props.expense} handleSubmit={this.handleSubmit} />
+        <button onClick={this.handleRemove}>Remove</button>
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (state, props) => {
   return {
