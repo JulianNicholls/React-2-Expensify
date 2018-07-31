@@ -4,7 +4,7 @@ Expensify App from the second half of [The Complete React Web Developer Course
 
 ## Progress
 
-Completed section 11 - React with Redux
+Completed section 12 - Testing
 
 ## Differences from Andrew
 
