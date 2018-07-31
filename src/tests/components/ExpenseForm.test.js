@@ -6,9 +6,13 @@ import ExpenseForm from '../../components/ExpenseForm';
 import { testExpenses } from '../fixtures/expenses';
 
 describe('ExpenseForm component', () => {
-  it('should render correctly for add', () => {
-    const wrapper = shallow(<ExpenseForm />);
+  let wrapper;
 
+  beforeEach(() => {
+    wrapper = shallow(<ExpenseForm />);
+  });
+
+  it('should render correctly for add', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -19,8 +23,6 @@ describe('ExpenseForm component', () => {
   });
 
   it('should show an error when invalid data is submitted', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     expect(wrapper).toMatchSnapshot();
 
     wrapper.find('form').simulate('submit', { preventDefault: () => {} });
@@ -30,8 +32,6 @@ describe('ExpenseForm component', () => {
   });
 
   it('should update state when description is changed', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper
       .find('input')
       .at(0)
@@ -41,16 +41,12 @@ describe('ExpenseForm component', () => {
   });
 
   it('should update state when note is changed', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper.find('textarea').simulate('change', { target: { value: 'new note' } });
 
     expect(wrapper.state('note')).toBe('new note');
   });
 
   it('should update state when amount is changed validly', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper
       .find('input')
       .at(1)
@@ -60,8 +56,6 @@ describe('ExpenseForm component', () => {
   });
 
   it('should NOT update state when amount is changed INvalidly', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper
       .find('input')
       .at(1)
@@ -88,16 +82,12 @@ describe('ExpenseForm component', () => {
   });
 
   it('should set createdAt in onDateChange', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper.find('withStyles(SingleDatePicker)').prop('onDateChange')(moment());
 
     expect(wrapper.state('createdAt')).toEqual(moment());
   });
 
   it('should set pickerFocused in onFocusChange', () => {
-    const wrapper = shallow(<ExpenseForm />);
-
     wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({
       pickerFocused: true
     });
