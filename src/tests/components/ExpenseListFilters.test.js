@@ -65,8 +65,8 @@ describe('ExpenseListFilters', () => {
   });
 
   it('Should handle focus change', () => {
-    wrapper.find('withStyles(DateRangePicker)').prop('onFocusChange')('start');
+    wrapper.find('withStyles(DateRangePicker)').prop('onFocusChange')('startDate');
 
-    expect(wrapper.state('pickerFocused')).toBe('start');
+    expect(wrapper.state('pickerFocused')).toBe('startDate');
   });
 });
