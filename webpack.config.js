@@ -32,7 +32,8 @@ module.exports = (env, argv) => {
                 options: { sourceMap: true }
               }, 
               {
-                loader: 'sass-loader', options: { sourceMap: true }
+                loader: 'sass-loader', 
+                options: { sourceMap: true }
               }
             ]
           })
