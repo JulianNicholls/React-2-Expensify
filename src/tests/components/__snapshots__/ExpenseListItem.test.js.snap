@@ -37,7 +37,7 @@ exports[`ExpenseListItem component should render correctly 1`] = `
       }
     }
   >
-    150.00
+    £150.00
   </div>
   <div
     style={
