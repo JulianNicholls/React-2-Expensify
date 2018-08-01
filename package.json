@@ -4,11 +4,13 @@
   "description": "Code from the Complete React course by Andrew Mead",
   "main": "index.js",
   "scripts": {
-    "serve": "live-server public",
     "build:dev": "webpack --mode development",
     "build:prod": "webpack -p --mode production",
+    "start:dev": "nodemon server/server.js",
     "dev-server": "webpack-dev-server --mode development",
-    "test": "jest"
+    "test": "jest",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "repository": {
     "type": "git",
@@ -60,7 +62,6 @@
     "jest": "^23.4.2",
     "live-server": "^1.2.0",
     "raf": "^3.4.0",
-    "react-test-renderer": "^16.4.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   }
