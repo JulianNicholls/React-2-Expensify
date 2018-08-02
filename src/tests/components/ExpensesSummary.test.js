@@ -27,6 +27,7 @@ describe('ExpensesSummary', () => {
     const wrapper = shallow(
       <ExpensesSummary expensesTotal={123245} filteredCount={3} expensesCount={4} />
     );
+
     const text = wrapper.find('h1').text();
 
     expect(text).toContain('3 expenses (of 4)');
@@ -37,6 +38,7 @@ describe('ExpensesSummary', () => {
     const wrapper = shallow(
       <ExpensesSummary expensesTotal={123245} filteredCount={1} expensesCount={4} />
     );
+    
     const text = wrapper.find('h1').text();
 
     expect(text).toContain('1 expense (of 4)');

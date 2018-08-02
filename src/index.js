@@ -13,15 +13,15 @@ import './styles/styles.scss';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 
-//---------------------------------------------------------------------------
-// TEST CODE
-
 import { addExpense } from './actions/expenses';
 
 // Initialise Moment with the correct locale (for me)
 moment.locale('en-gb');
 
 const store = configureStore();
+
+//---------------------------------------------------------------------------
+// TEST CODE
 
 store.dispatch(
   addExpense({
@@ -30,6 +30,7 @@ store.dispatch(
     createdAt: moment().subtract(20, 'days')
   })
 );
+
 store.dispatch(
   addExpense({
     description: 'Gas bill',
@@ -37,6 +38,7 @@ store.dispatch(
     createdAt: moment().add(5, 'days')
   })
 );
+
 store.dispatch(
   addExpense({
     description: 'Rent',
@@ -44,6 +46,7 @@ store.dispatch(
     createdAt: moment().subtract(15, 'days')
   })
 );
+
 store.dispatch(
   addExpense({
     description: 'Telephone bill',
