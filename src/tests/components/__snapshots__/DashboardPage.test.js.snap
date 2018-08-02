@@ -4,9 +4,7 @@ exports[`DashboardPage component should render correctly 1`] = `
 <div
   className="container"
 >
-  <h1>
-    Dashboard
-  </h1>
+  <Connect(ExpensesSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
 </div>

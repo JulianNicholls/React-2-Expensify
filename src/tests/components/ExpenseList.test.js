@@ -11,14 +11,8 @@ describe('ExpenseList component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render correctly with NO expenses and filtering', () => {
-    const wrapper = shallow(<ExpenseList expenses={[]} filtered={true} />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should render correctly with NO expenses and NO filtering', () => {
-    const wrapper = shallow(<ExpenseList expenses={[]} filtered={false} />);
+  it('should render correctly with NO expenses', () => {
+    const wrapper = shallow(<ExpenseList expenses={[]} />);
 
     expect(wrapper).toMatchSnapshot();
   });

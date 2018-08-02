@@ -37,14 +37,4 @@ exports[`ExpenseList component should render correctly WITH expenses 1`] = `
 </div>
 `;
 
-exports[`ExpenseList component should render correctly with NO expenses and NO filtering 1`] = `
-<p>
-  There are no expenses to display
-</p>
-`;
-
-exports[`ExpenseList component should render correctly with NO expenses and filtering 1`] = `
-<p>
-  All expenses filtered out
-</p>
-`;
+exports[`ExpenseList component should render correctly with NO expenses 1`] = `<div />`;
