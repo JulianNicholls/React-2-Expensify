@@ -6,14 +6,16 @@ import moment from 'moment';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
+import './firebase';
+
+import { addExpense } from './actions/expenses';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
 // Initialise react-dates for later
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-
-import { addExpense } from './actions/expenses';
 
 // Initialise Moment with the correct locale (for me)
 moment.locale('en-gb');
@@ -58,7 +60,7 @@ store.dispatch(
 store.dispatch(
   addExpense({
     description: 'Large bill',
-    amount: 1202700,
+    amount: 202700,
     createdAt: moment().subtract(17, 'days')
   })
 );
