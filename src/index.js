@@ -6,6 +6,8 @@ import moment from 'moment';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
+import { startSetExpenses } from './actions/expenses';
+
 import './firebase';
 
 // import { addExpense } from './actions/expenses';
@@ -67,9 +69,13 @@ const store = configureStore();
 
 //---------------------------------------------------------------------------
 
-ReactDOM.render(
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+
+store.dispatch(startSetExpenses()).then(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>,
+    document.getElementById('root')
+  );
+});

@@ -10,6 +10,19 @@ import { testExpenses } from '../fixtures/expenses';
 const createMockStore = configureMockStore([thunk]);
 
 describe('Expenses Action Generators', () => {
+  beforeEach(done => {
+    const expensesData = {};
+
+    testExpenses.forEach(({ id, description, note, amount, createdAt }) => {
+      expensesData[id] = { description, note, amount, createdAt };
+    });
+
+    database
+      .ref('expenses')
+      .set(expensesData)
+      .then(() => done());
+  });
+
   it('should add expense to database WITH details', done => {
     const store = createMockStore({});
     const expenseData = {
@@ -24,6 +37,7 @@ describe('Expenses Action Generators', () => {
       .then(() => {
         const actions = store.getActions();
 
+        expect(actions.length).toBe(1);
         expect(actions[0]).toEqual({
           type: types.ADD_EXPENSE,
           expense: { id: expect.any(String), ...expenseData }
@@ -51,6 +65,7 @@ describe('Expenses Action Generators', () => {
       .then(() => {
         const actions = store.getActions();
 
+        expect(actions.length).toBe(1);
         expect(actions[0]).toEqual({
           type: types.ADD_EXPENSE,
           expense: { id: expect.any(String), ...emptyData }
@@ -86,6 +101,31 @@ describe('Expenses Action Generators', () => {
       type: types.EDIT_EXPENSE,
       id: '123abc',
       updates: { description: 'blah' }
+    });
+  });
+
+  it('sets up to fill in all the expenses', () => {
+    const action = actions.setExpenses(testExpenses);
+
+    expect(action).toEqual({
+      type: types.SET_EXPENSES,
+      expenses: testExpenses
+    });
+  });
+
+  it('sets up to fill in all the expenses from database', done => {
+    const store = createMockStore({});
+
+    store.dispatch(actions.startSetExpenses()).then(() => {
+      const actions = store.getActions();
+
+      expect(actions.length).toBe(1);
+      expect(actions[0]).toEqual({
+        type: types.SET_EXPENSES,
+        expenses: testExpenses
+      });
+
+      done();
     });
   });
 });

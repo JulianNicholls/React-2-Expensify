@@ -71,4 +71,13 @@ describe('Expenses reducer', () => {
       testExpenses[3]
     ]);
   });
+
+  it('sets a whole new list of expenses', () => {
+    const state = expensesReducer([testExpenses[2], testExpenses[0]], {
+      type: types.SET_EXPENSES,
+      expenses: [testExpenses[1], testExpenses[3]]
+    });
+
+    expect(state).toEqual([testExpenses[1], testExpenses[3]]);
+  });
 });
