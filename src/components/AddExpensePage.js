@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import ExpenseForm from './ExpenseForm';
-import { addExpense } from '../actions/expenses';
+import { startAddExpense } from '../actions/expenses';
 
-export const AddExpensePage = ({ addExpense, history }) => (
+export const AddExpensePage = ({ startAddExpense, history }) => (
   <div className="container">
     <h1>Add Expense</h1>
     <ExpenseForm
       handleSubmit={expense => {
-        addExpense(expense);
+        startAddExpense(expense);
 
         history.push('/');
       }}
@@ -19,7 +19,7 @@ export const AddExpensePage = ({ addExpense, history }) => (
 );
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ addExpense }, dispatch);
+  return bindActionCreators({ startAddExpense }, dispatch);
 };
 
 export default connect(
