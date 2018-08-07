@@ -8,3 +8,6 @@ export const SORT_BY_DATE = 'sort_by_date';
 export const SORT_BY_AMOUNT = 'sort_by_amount';
 export const SET_START_DATE = 'set_start_date';
 export const SET_END_DATE = 'set_end_date';
+
+export const LOGIN = 'login';
+export const LOGOUT = 'logout';

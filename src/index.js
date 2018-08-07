@@ -7,6 +7,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
 import { startSetExpenses } from './actions/expenses';
+import { login, logout } from './actions/auth';
 
 import { firebase } from './firebase';
 
@@ -43,7 +44,8 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log('Logged IN');
+    console.log('Logged IN:', user.uid);
+    store.dispatch(login(user));
     store.dispatch(startSetExpenses()).then(() => {
       renderApp();
 
@@ -51,6 +53,7 @@ firebase.auth().onAuthStateChanged(user => {
     });
   } else {
     console.log('Logged OUT');
+    store.dispatch(logout());
     renderApp();
     history.push('/');
   }
