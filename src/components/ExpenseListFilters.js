@@ -20,6 +20,7 @@ export class ExpenseListFilters extends React.Component {
   };
 
   onFocusChange = pickerFocused => {
+    console.log({pickerFocused});
     this.setState(() => ({ pickerFocused }));
   };
 

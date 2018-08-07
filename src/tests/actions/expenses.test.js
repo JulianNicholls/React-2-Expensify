@@ -88,7 +88,7 @@ describe('Expenses Action Generators', () => {
     });
   });
 
-  it('sets up to remove an expense from the database', done => {
+  it('should remove an expense from the database', done => {
     const store = createMockStore({});
     const id = testExpenses[1].id;
 
@@ -103,7 +103,7 @@ describe('Expenses Action Generators', () => {
         return database.ref(`expenses/${id}`).once('value');
       })
       .then(snapshot => {
-        expect(snapshot.val()).toBe(null);
+        expect(snapshot.val()).toBeFalsy();
         done();
       });
   });
@@ -112,6 +112,32 @@ describe('Expenses Action Generators', () => {
     const action = actions.removeExpense('123abc');
 
     expect(action).toEqual({ type: types.REMOVE_EXPENSE, id: '123abc' });
+  });
+
+  it('should edit an expense in the database', done => {
+    const store = createMockStore({});
+    const id = testExpenses[2].id;
+    const updates = {
+      description: 'aquatic ceremony',
+      amount: 200000,
+      createdAt: 16678995000,
+      note: 'Notes'
+    };
+
+    store
+      .dispatch(actions.startEditExpense(id, updates))
+      .then(() => {
+        const actions = store.getActions();
+
+        expect(actions.length).toBe(1);
+        expect(actions[0]).toEqual({ type: types.EDIT_EXPENSE, id, updates });
+
+        return database.ref(`expenses/${id}`).once('value');
+      })
+      .then(snapshot => {
+        expect(snapshot.val()).toEqual(updates);
+        done();
+      });
   });
 
   it('sets up to edit an expense', () => {
@@ -124,16 +150,7 @@ describe('Expenses Action Generators', () => {
     });
   });
 
-  it('sets up to fill in all the expenses', () => {
-    const action = actions.setExpenses(testExpenses);
-
-    expect(action).toEqual({
-      type: types.SET_EXPENSES,
-      expenses: testExpenses
-    });
-  });
-
-  it('sets up to fill in all the expenses from database', done => {
+  it('should fill in all the expenses from the database', done => {
     const store = createMockStore({});
 
     store.dispatch(actions.startSetExpenses()).then(() => {
@@ -146,6 +163,15 @@ describe('Expenses Action Generators', () => {
       });
 
       done();
+    });
+  });
+
+  it('sets up to fill in all the expenses', () => {
+    const action = actions.setExpenses(testExpenses);
+
+    expect(action).toEqual({
+      type: types.SET_EXPENSES,
+      expenses: testExpenses
     });
   });
 });

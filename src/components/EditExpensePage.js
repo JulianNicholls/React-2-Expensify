@@ -6,7 +6,7 @@ import * as actions from '../actions/expenses';
 
 export class EditExpensePage extends React.Component {
   handleSubmit = updated => {
-    this.props.editExpense(this.props.expense.id, updated);
+    this.props.startEditExpense(this.props.expense.id, updated);
 
     this.props.history.push('/');
   };
