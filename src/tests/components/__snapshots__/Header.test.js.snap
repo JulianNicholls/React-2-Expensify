@@ -46,7 +46,9 @@ exports[`Header component should render correctly 1`] = `
     >
       Add Expense
     </NavLink>
-    <button>
+    <button
+      onClick={[Function]}
+    >
       Log out
     </button>
   </div>
