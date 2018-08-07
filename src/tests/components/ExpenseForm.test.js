@@ -89,7 +89,7 @@ describe('ExpenseForm component', () => {
 
   it('should set pickerFocused in onFocusChange', () => {
     wrapper.find('withStyles(SingleDatePicker)').prop('onFocusChange')({
-      pickerFocused: true
+      focused: true
     });
 
     expect(wrapper.state('pickerFocused')).toBe(true);
