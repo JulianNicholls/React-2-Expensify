@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { Router, Route, Switch, Link } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 
 import Header from '../components/Header';
 import LoginPage from '../components/LoginPage';
@@ -17,8 +18,10 @@ export const NotFoundPage = () => (
   </React.Fragment>
 );
 
+export const history = createHistory();
+
 const AppRouter = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <div>
       <Header />
       <Switch>
@@ -30,7 +33,7 @@ const AppRouter = () => (
         <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 );
 
 export default AppRouter;

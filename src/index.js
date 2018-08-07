@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import moment from 'moment';
 
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
 import { startSetExpenses } from './actions/expenses';
@@ -22,23 +22,36 @@ moment.locale('en-gb');
 
 const store = configureStore();
 
+let hasRendered = false;
+
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>,
+      document.getElementById('root')
+    );
+
+    hasRendered = true;
+  }
+};
+
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>,
-    document.getElementById('root')
-  );
-});
+// Login and Logout
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    const { providerData } = user;
+    console.log('Logged IN');
+    store.dispatch(startSetExpenses()).then(() => {
+      renderApp();
 
-    console.log('Logged IN:', providerData);
+      if (history.location.pathname === '/') history.push('/dashboard');
+    });
   } else {
     console.log('Logged OUT');
+    renderApp();
+    history.push('/');
   }
 });
