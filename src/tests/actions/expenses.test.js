@@ -88,6 +88,26 @@ describe('Expenses Action Generators', () => {
     });
   });
 
+  it('sets up to remove an expense from the database', done => {
+    const store = createMockStore({});
+    const id = testExpenses[1].id;
+
+    store
+      .dispatch(actions.startRemoveExpense(id))
+      .then(() => {
+        const actions = store.getActions();
+
+        expect(actions.length).toBe(1);
+        expect(actions[0]).toEqual({ type: types.REMOVE_EXPENSE, id });
+
+        return database.ref(`expenses/${id}`).once('value');
+      })
+      .then(snapshot => {
+        expect(snapshot.val()).toBe(null);
+        done();
+      });
+  });
+
   it('sets up to remove an expense', () => {
     const action = actions.removeExpense('123abc');
 
