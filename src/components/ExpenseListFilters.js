@@ -19,10 +19,7 @@ export class ExpenseListFilters extends React.Component {
     this.props.setEndDate(endDate);
   };
 
-  onFocusChange = pickerFocused => {
-    console.log({pickerFocused});
-    this.setState(() => ({ pickerFocused }));
-  };
+  onFocusChange = pickerFocused => this.setState(() => ({ pickerFocused }));
 
   render() {
     const {

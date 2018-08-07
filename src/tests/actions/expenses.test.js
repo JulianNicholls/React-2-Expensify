@@ -119,9 +119,7 @@ describe('Expenses Action Generators', () => {
     const id = testExpenses[2].id;
     const updates = {
       description: 'aquatic ceremony',
-      amount: 200000,
-      createdAt: 16678995000,
-      note: 'Notes'
+      amount: 200000
     };
 
     store
@@ -135,7 +133,9 @@ describe('Expenses Action Generators', () => {
         return database.ref(`expenses/${id}`).once('value');
       })
       .then(snapshot => {
-        expect(snapshot.val()).toEqual(updates);
+        const readValue = { ...snapshot.val(), id: snapshot.key };
+
+        expect(readValue).toEqual({ ...testExpenses[2], ...updates });
         done();
       });
   });

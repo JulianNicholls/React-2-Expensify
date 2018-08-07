@@ -36,25 +36,25 @@ describe('ExpenseListFilters', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('Should handle text change', () => {
+  it('should handle text change', () => {
     wrapper.find('input').simulate('change', { target: { value: 'rent' } });
 
     expect(setTextFilter).toHaveBeenLastCalledWith('rent');
   });
 
-  it('Should handle change to sort by amount', () => {
+  it('should handle change to sort by amount', () => {
     wrapper.find('select').simulate('change', { target: { value: 'amount' } });
 
     expect(sortByAmount).toHaveBeenCalled();
   });
 
-  it('Should handle change to sort by date', () => {
+  it('should handle change to sort by date', () => {
     wrapper.find('select').simulate('change', { target: { value: 'date' } });
 
     expect(sortByDate).toHaveBeenCalled();
   });
 
-  it('Should handle dates change', () => {
+  it('should handle dates change', () => {
     wrapper.find('withStyles(DateRangePicker)').prop('onDatesChange')({
       startDate: setFilters.startDate,
       endDate: setFilters.endDate
@@ -64,7 +64,7 @@ describe('ExpenseListFilters', () => {
     expect(setEndDate).toHaveBeenLastCalledWith(setFilters.endDate);
   });
 
-  it('Should handle focus change', () => {
+  it('should handle focus change', () => {
     wrapper.find('withStyles(DateRangePicker)').prop('onFocusChange')('startDate');
 
     expect(wrapper.state('pickerFocused')).toBe('startDate');
