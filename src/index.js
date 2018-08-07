@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(user => {
   if (user) {
     const { providerData } = user;
 
-    console.log('Logged IN:', { providerData });
+    console.log('Logged IN:', providerData);
   } else {
     console.log('Logged OUT');
   }

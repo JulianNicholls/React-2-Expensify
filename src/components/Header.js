@@ -1,7 +1,11 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => (
+import { startLogout } from '../actions/auth';
+
+export const Header = ({ startLogout }) => (
   <header
     style={{
       background: '#202050',
@@ -18,8 +22,16 @@ const Header = () => (
       <NavLink className="nav-link" to="/create">
         Add Expense
       </NavLink>
+      <button onClick={startLogout}>Log out</button>
     </div>
   </header>
 );
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ startLogout }, dispatch);
+};
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Header);

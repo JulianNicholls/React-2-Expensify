@@ -46,6 +46,9 @@ exports[`Header component should render correctly 1`] = `
     >
       Add Expense
     </NavLink>
+    <button>
+      Log out
+    </button>
   </div>
 </header>
 `;
