@@ -8,9 +8,7 @@ import configureStore from './store/configureStore';
 
 import { startSetExpenses } from './actions/expenses';
 
-import './firebase';
-
-// import { addExpense } from './actions/expenses';
+import { firebase } from './firebase';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -24,51 +22,6 @@ moment.locale('en-gb');
 
 const store = configureStore();
 
-//---------------------------------------------------------------------------
-// TEST CODE
-
-// store.dispatch(
-//   addExpense({
-//     description: 'Water bill',
-//     amount: 10800,
-//     createdAt: moment().subtract(20, 'days')
-//   })
-// );
-
-// store.dispatch(
-//   addExpense({
-//     description: 'Gas bill',
-//     amount: 2750,
-//     createdAt: moment().add(5, 'days')
-//   })
-// );
-
-// store.dispatch(
-//   addExpense({
-//     description: 'Rent',
-//     amount: 53500,
-//     createdAt: moment().subtract(15, 'days')
-//   })
-// );
-
-// store.dispatch(
-//   addExpense({
-//     description: 'Telephone bill',
-//     amount: 5000,
-//     createdAt: moment().subtract(5, 'days')
-//   })
-// );
-
-// store.dispatch(
-//   addExpense({
-//     description: 'Large bill',
-//     amount: 202700,
-//     createdAt: moment().subtract(17, 'days')
-//   })
-// );
-
-//---------------------------------------------------------------------------
-
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
 
 store.dispatch(startSetExpenses()).then(() => {
@@ -78,4 +31,14 @@ store.dispatch(startSetExpenses()).then(() => {
     </Provider>,
     document.getElementById('root')
   );
+});
+
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    const { providerData } = user;
+
+    console.log('Logged IN:', { providerData });
+  } else {
+    console.log('Logged OUT');
+  }
 });

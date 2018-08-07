@@ -4,7 +4,7 @@ Expensify App from the second half of [The Complete React Web Developer Course
 
 ## Progress
 
-Completed section 15 - Firebase with Redux
+Working on section 16 - Firebase Authentication
 
 ## Differences from Andrew
 

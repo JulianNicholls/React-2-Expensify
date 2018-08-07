@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component should render correctly 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": "95vh",
+      "justifyContent": "center",
+    }
+  }
+>
+  <button>
+    Log in
+  </button>
+</div>
+`;
