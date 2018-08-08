@@ -24,33 +24,44 @@ exports[`Header component should render correctly 1`] = `
     <div
       style={
         Object {
+          "alignItems": "center",
           "display": "flex",
-          "justifyItems": "left",
+          "justifyContent": "left",
           "marginTop": "1em",
         }
       }
-    />
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      className="nav-link"
-      to="/dashboard"
     >
-      Dashboard
-    </NavLink>
-    <NavLink
-      activeClassName="active"
-      aria-current="page"
-      className="nav-link"
-      to="/create"
-    >
-      Add Expense
-    </NavLink>
-    <button
-      onClick={[Function]}
-    >
-      Log out
-    </button>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="nav-link"
+        to="/dashboard"
+      >
+        Dashboard
+      </NavLink>
+      <NavLink
+        activeClassName="active"
+        aria-current="page"
+        className="nav-link"
+        to="/create"
+      >
+        Add Expense
+      </NavLink>
+      <div
+        style={
+          Object {
+            "marginLeft": "auto",
+          }
+        }
+      >
+         
+        <button
+          onClick={[Function]}
+        >
+          Log out
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 `;
