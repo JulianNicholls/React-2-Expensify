@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { NotFoundPage } from '../../routers/AppRouter.js';
+import NotFoundPage from '../../components/NotFoundPage';
 
 describe('NotFoundPage component', () => {
   it('should render correctly', () => {
