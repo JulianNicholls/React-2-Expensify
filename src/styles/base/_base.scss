@@ -9,7 +9,6 @@ body {
   line-height: 1.6;
 }
 
-
 .content-container {
   margin: 0 auto;
   padding: 0 $m-size;
@@ -17,23 +16,6 @@ body {
 }
 
 // TEMPORARY
-
-.nav-link {
-  display: inline-block;
-  color: #ddd;
-  margin-right: 1em;
-  text-decoration: none;
-
-  &:hover {
-    color: #ffd;
-   text-shadow: 2px 2px 4px rgba(255, 255, 128, 0.7);
-  }
-}
-
-.active {
-  font-weight: bold;
-  color: white;
-}
 
 .expense-form {
   display: flex;

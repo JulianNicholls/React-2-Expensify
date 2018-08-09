@@ -14,7 +14,7 @@ export const Header = ({ displayName, startLogout }) => (
         </Link>
 
         <div style={{ marginLeft: 'auto' }}>
-          {displayName} <button onClick={startLogout}>Log out</button>
+          {displayName} <button className="button button--link" onClick={startLogout}>Log out</button>
         </div>
       </div>
     </div>
