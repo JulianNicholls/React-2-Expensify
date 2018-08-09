@@ -10,6 +10,12 @@ body {
 }
 
 
+.content-container {
+  margin: 0 auto;
+  padding: 0 $m-size;
+  max-width: 80rem;
+}
+
 // TEMPORARY
 
 .nav-link {
@@ -27,12 +33,6 @@ body {
 .active {
   font-weight: bold;
   color: white;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 10px;
 }
 
 .expense-form {
