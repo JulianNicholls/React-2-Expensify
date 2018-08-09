@@ -22,7 +22,12 @@ export const ExpensesSummary = ({ expensesTotal, expensesCount, filteredCount })
   );
 
   if (filteredCount === 0)
-    title = <h1 className="page-header__title">No expenses {ofWord} to display</h1>;
+    title = (
+      <h1 className="page-header__title">
+        No expenses
+        {ofWord} to display
+      </h1>
+    );
 
   return (
     <div className="page-header">

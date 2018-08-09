@@ -8,9 +8,19 @@ Working on section 17 - Styling
 
 ## Differences from Andrew
 
-I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
+### I'm using the latest version of all the NPM modules. 
 
-I have put in some minimal CSS until the app is finally styled in section 17.
+This has caused a cascade of changes...
+
+Because the latest webpack-dev-server requires Webpack 4, I am using that version, which has
+some differences from previous versions. 
+
+Extract-text-webpack-plugin is actually a beta of the next version
+because the currently released version does not work with Webpack 4.
+
+### I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
+
+### There is some minimal CSS until the app is finally styled in section 17.
 
 ## Git client
 

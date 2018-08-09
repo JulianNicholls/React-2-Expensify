@@ -6,6 +6,8 @@ import moment from 'moment';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 
+import LoadingPage from './components/LoadingPage';
+
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
 
@@ -38,7 +40,7 @@ const renderApp = () => {
   hasRendered = true;
 };
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 // Login and Logout
 

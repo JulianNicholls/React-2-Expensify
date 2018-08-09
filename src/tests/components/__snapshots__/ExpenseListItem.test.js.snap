@@ -1,53 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpenseListItem component should render correctly 1`] = `
-<div
-  style={
-    Object {
-      "alignItems": "center",
-      "display": "flex",
-      "marginBottom": "7px",
-    }
-  }
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/2"
 >
-  <Link
-    replace={false}
-    style={
-      Object {
-        "width": "60%",
-      }
-    }
-    to="/edit/2"
-  >
-    <h4
-      style={
-        Object {
-          "margin": "0",
-        }
-      }
+  <div>
+    <h3
+      className="list-item__title"
     >
       rates
-    </h4>
-  </Link>
-  <div
-    style={
-      Object {
-        "textAlign": "right",
-        "width": "15%",
-      }
-    }
+    </h3>
+    <span
+      className="list-item__subtitle"
+    >
+      Jan 21, 1970
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
   >
     £150.00
-  </div>
-  <div
-    style={
-      Object {
-        "paddingLeft": "2em",
-        "width": "15%",
-      }
-    }
-  >
-    Jan 21, 1970
-  </div>
-</div>
+  </h3>
+</Link>
 `;

@@ -1,40 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpenseList component should render correctly WITH expenses 1`] = `
-<div>
-  <ExpenseListItem
-    amount={10000}
-    createdAt={2000000000}
-    description="rent"
-    id="1"
-    key="1"
-    note=""
-  />
-  <ExpenseListItem
-    amount={15000}
-    createdAt={1800000000}
-    description="rates"
-    id="2"
-    key="2"
-    note=""
-  />
-  <ExpenseListItem
-    amount={20000}
-    createdAt={1600000000}
-    description="water"
-    id="3"
-    key="3"
-    note=""
-  />
-  <ExpenseListItem
-    amount={25000}
-    createdAt={1400000000}
-    description="gas"
-    id="4"
-    key="4"
-    note=""
-  />
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <ExpenseListItem
+      amount={10000}
+      createdAt={2000000000}
+      description="rent"
+      id="1"
+      key="1"
+      note=""
+    />
+    <ExpenseListItem
+      amount={15000}
+      createdAt={1800000000}
+      description="rates"
+      id="2"
+      key="2"
+      note=""
+    />
+    <ExpenseListItem
+      amount={20000}
+      createdAt={1600000000}
+      description="water"
+      id="3"
+      key="3"
+      note=""
+    />
+    <ExpenseListItem
+      amount={25000}
+      createdAt={1400000000}
+      description="gas"
+      id="4"
+      key="4"
+      note=""
+    />
+  </div>
 </div>
 `;
 
-exports[`ExpenseList component should render correctly with NO expenses 1`] = `<div />`;
+exports[`ExpenseList component should render correctly with NO expenses 1`] = `
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-item list-item--message"
+    >
+      <span>
+        No expenses
+      </span>
+    </div>
+  </div>
+</div>
+`;
