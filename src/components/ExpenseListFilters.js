@@ -27,26 +27,39 @@ export class ExpenseListFilters extends React.Component {
     } = this.props;
 
     return (
-      <div>
-        <input type="text" value={text} onChange={this.onTextChange} />
-        <select value={sortBy} onChange={this.onSortChange}>
-          <option value="date">Date</option>
-          <option value="amount">Amount</option>
-        </select>
-
-        <DateRangePicker
-          startDate={startDate}
-          startDateId="sdid" // New requirement
-          endDate={endDate}
-          endDateId="edid" // New requirement
-          onDatesChange={this.onDatesChange}
-          focusedInput={this.state.pickerFocused}
-          onFocusChange={this.onFocusChange}
-          numberOfMonths={1}
-          isOutsideRange={() => false}
-          monthFormat={'MMM YY'}
-          showClearDates={true}
-        />
+      <div className="content-container">
+        <div className="input-group">
+          <div className="input-group__item">
+            <input
+              className="text-input"
+              type="text"
+              value={text}
+              onChange={this.onTextChange}
+              placeholder="Search Expenses"
+            />
+          </div>
+          <div className="input-group__item">
+            <select className="select" value={sortBy} onChange={this.onSortChange}>
+              <option value="date">Date</option>
+              <option value="amount">Amount</option>
+            </select>
+          </div>
+          <div className="input-group__item">
+            <DateRangePicker
+              startDate={startDate}
+              startDateId="sdid" // New requirement
+              endDate={endDate}
+              endDateId="edid" // New requirement
+              onDatesChange={this.onDatesChange}
+              focusedInput={this.state.pickerFocused}
+              onFocusChange={this.onFocusChange}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              monthFormat={'MMM YY'}
+              showClearDates={true}
+            />
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -13,28 +17,4 @@ body {
   margin: 0 auto;
   padding: 0 $m-size;
   max-width: 80rem;
-}
-
-// TEMPORARY
-
-.expense-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  min-height: 11em;
-
-  input, textarea {
-    margin-bottom: 1em;
-    padding: 0.3em;
-    width: 25em;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-}
-
-.form-error {
-  color: #800000;
 }

@@ -68,6 +68,7 @@ class ExpenseForm extends React.Component {
         {this.state.error && <p className="form-error">{this.state.error}</p>}
         <form onSubmit={this.addExpense} className="expense-form">
           <input
+            className="text-input"
             value={this.state.description}
             type="text"
             placeholder="Description"
@@ -75,6 +76,7 @@ class ExpenseForm extends React.Component {
             onChange={this.changeDescription}
           />
           <input
+            className="text-input"
             value={this.state.amount}
             type="text"
             placeholder="Amount"
@@ -90,6 +92,7 @@ class ExpenseForm extends React.Component {
             displayFormat={'ll'}
           />
           <textarea
+            className="textarea"
             value={this.state.note}
             placeholder="Add an optional note for this expense"
             onChange={this.changeNote}
