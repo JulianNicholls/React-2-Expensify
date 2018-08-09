@@ -7,17 +7,13 @@ import 'numeral/locales/en-gb';
 numeral.locale('en-gb');
 
 const ExpenseListItem = ({ id, description, amount, createdAt }) => (
-  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '7px' }}>
-    <Link style={{ width: '60%' }} to={`/edit/${id}`}>
-      <h4 style={{ margin: '0' }}>{description}</h4>
-    </Link>
-    <div style={{ width: '15%', textAlign: 'right' }}>
-      {numeral(amount / 100.0).format('$0,0.00')}
+  <Link className="list-item" to={`/edit/${id}`}>
+    <div>
+      <h3 className="list-item__title">{description}</h3>
+      <span className="list-item__subtitle">{moment(createdAt).format('ll')}</span>
     </div>
-    <div style={{ width: '15%', paddingLeft: '2em' }}>
-      {moment(createdAt).format('ll')}
-    </div>
-  </div>
+    <h3 className="list-item__data">{numeral(amount / 100.0).format('$0,0.00')}</h3>
+  </Link>
 );
 
 export default ExpenseListItem;
