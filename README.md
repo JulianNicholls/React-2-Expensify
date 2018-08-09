@@ -4,13 +4,13 @@ Expensify App from the second half of [The Complete React Web Developer Course
 
 ## Progress
 
-Working on section 16 - Firebase Authentication
+Working on section 17 - Styling
 
 ## Differences from Andrew
 
 I haven't done the Portfolio app, destructuring, HOC, or some of the redux examples.
 
-I have put in some minimal CSS until Andrew styles the app in section 17.
+I have put in some minimal CSS until the app is finally styled in section 17.
 
 ## Git client
 

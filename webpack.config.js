@@ -14,8 +14,7 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   const cssExtract = new ExtractTextPlugin({
-    filename: '[name].css',
-    disable: !isProduction
+    filename: '[name].css'
   });
 
   return {

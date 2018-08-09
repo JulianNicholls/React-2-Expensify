@@ -26,16 +26,16 @@ const store = configureStore();
 let hasRendered = false;
 
 const renderApp = () => {
-  if (!hasRendered) {
-    ReactDOM.render(
-      <Provider store={store}>
-        <AppRouter />
-      </Provider>,
-      document.getElementById('root')
-    );
+  if (hasRendered) return;
 
-    hasRendered = true;
-  }
+  ReactDOM.render(
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>,
+    document.getElementById('root')
+  );
+
+  hasRendered = true;
 };
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));

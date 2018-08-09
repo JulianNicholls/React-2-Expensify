@@ -5,15 +5,14 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({ startLogin }) => (
-  <div
-    style={{
-      height: '95vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}
-  >
-    <button onClick={startLogin}>Log in</button>
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <h1 className="box-layout__title">Expensify</h1>
+      <p>It's time to get your expenses under control</p>
+      <button className="big-button" onClick={startLogin}>
+        Log in with Google
+      </button>
+    </div>
   </div>
 );
 
