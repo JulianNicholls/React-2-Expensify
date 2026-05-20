@@ -73,6 +73,6 @@
     "raf": "^3.4.0",
     "redux-mock-store": "^1.5.3",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^5.2.1"
+    "webpack-dev-server": "^5.2.4"
   }
 }
